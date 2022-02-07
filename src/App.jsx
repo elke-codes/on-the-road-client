@@ -22,6 +22,11 @@ const App = () => {
 		console.log("env", process.env);
 		const user = getLoggedInUserFromStorage();
 		setLoggedInUser(user);
+
+		// const redirectURI = get query param however("redirectURI");
+		// if(redirectURI) {
+		// 	history.push(/redirectURI);
+		// }
 	}, []);
 
 	useEffect(async () => {

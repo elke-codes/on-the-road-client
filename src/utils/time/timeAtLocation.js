@@ -1,7 +1,7 @@
 /// --- TIME AT LOCATION --- ///
 
 import axios from "axios";
-// TODO ENV
+// TODO update time dynamically not only when loading user
 const API_KEY = process.env.REACT_APP_TIMEZONEDB_API_KEY;
 
 export const timeAtLocation = async (selectedFriendLat, selectedFriendLng) => {
