@@ -1,0 +1,21 @@
+/// --- MAP.SCSS --- ///
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+/* using react leaflet this is how you set the map hight */
+.leaflet-container {
+	height: 80vh;
+	width: 100vw;
+	z-index: 0;
+	@include box-shadow;
+	background-color: $map-blue;
+}
+
+.map {
+	display: flex;
+	justify-content: space-around;
+}
+
+.leaflet-popup-content-wrapper {
+	height: fit-content;
+	width: fit-content;
+}

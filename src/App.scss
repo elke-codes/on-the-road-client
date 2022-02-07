@@ -1,0 +1,102 @@
+/// --- APP SCSS --- ///
+
+// -- GLOBAL STYLES -- //
+@use "./styles/partials/typography.scss" as *;
+@use "./styles/partials/mixins" as *;
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/colors" as *;
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "AvenirNext LT Pro", Arial, sans-serif;
+	color: $primary-text;
+	background-color: #fff;
+}
+#root {
+	// width: 100vw;
+}
+
+main {
+	height: 70vh;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: $primary-text;
+}
+
+ul {
+	list-style: none;
+}
+
+input {
+	// @include body-copy;
+	// font-family: "AvenirNext LT Pro", Arial, sans-serif;
+	// border-radius: 0.25rem;
+	@include border-radius;
+	padding: 0.75rem;
+	margin: 0.5rem 0;
+	// border: 1px solid $mercury;
+	// background-color: $alabaster;
+	color: black;
+	// default state border: 1px solid $mercury
+	// active state $bandsite-black;
+	//error state #d22d2d;
+	// @include tablet {
+	// 	margin: 0;
+	// background-color: $light-blue;
+	// 	padding: 1rem;
+	// }
+	&--active {
+		// border: 1px solid;
+		// border-color: rgba(255, 196, 0, 0.5);
+		// $action-hover;
+
+		// border-color: $darker-blue;
+	}
+
+	&--error {
+		border-color: $orange;
+	}
+	&--error-message {
+		color: $orange;
+	}
+	//overwriting this default setting that seems to be applied on the "ouline"
+	&:focus-visible {
+		outline-color: $darker-blue;
+		background-color: #fff;
+		// background-color: $light-blue;
+		// $action-hover;
+	}
+}
+// -- LEFLET ADJUSTMENTS
+
+.leaflet-container a {
+	color: $dark-brown;
+}
+
+.collapse-content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.collapse > input[type="checkbox"] {
+	padding: 0rem 3rem 0rem 1rem;
+	min-height: 2.75rem;
+}

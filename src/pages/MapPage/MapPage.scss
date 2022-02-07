@@ -1,0 +1,109 @@
+/// --- MAPPAGE.SCSS --- ///
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
+
+.map-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	// padding: 3rem;
+	height: 80vh;
+	// background: url("https://images.unsplash.com/photo-1488188840666-e2308741a62f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8b2NlYW58ZW58MHx8MHx8&w=1000&q=80");
+	// background-image: url("../../assets/images/IMG_20131018_181032.jpg");
+	// background-image: url("../../assets/images/DSC_0118.JPG");
+	// background-image: url("../../assets/images/sien\ reap\ balcony\ \(226\).JPG");
+	// background-image: url("../../assets/images/IMG_20131218_171051.jpg");
+	box-shadow: inset 0 0 0 1000px rgb(215, 230, 235, 0.2);
+	// background-position: center;
+	// background-size: cover;
+	// background-repeat: no-repeat;
+
+	&__not-logged-in {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-image: url("../../assets/images/IMG_20131218_171051.jpg");
+		box-shadow: inset 0 0 0 1000px rgb(215, 230, 235, 0.2);
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	&__copy {
+		@include page-header;
+		color: $dark-grey;
+	}
+
+	&__open-modal-button {
+		line-height: 0;
+		border-radius: 0px;
+		font-weight: bold;
+		color: #57546b;
+		margin-right: 1rem;
+		font-size: 2rem;
+		position: absolute;
+		top: 15%;
+		left: 4%;
+		z-index: 4;
+		&:hover {
+			color: $primary-text;
+		}
+	}
+
+	&__explanation {
+		// margin-right: 3rem;
+		width: 20%;
+		line-height: 2rem;
+		background-color: white;
+		height: fit-content;
+		padding: 1rem;
+		border-radius: 20px;
+		position: fixed;
+		// top: 50%;
+		// left: 50%;
+		z-index: 1;
+		color: $dark-brown;
+		@include box-shadow;
+	}
+
+	&__modal-title {
+		display: flex;
+		justify-content: space-between;
+		@include page-header;
+		text-align: center;
+		color: $dark-brown;
+	}
+
+	&__close-modal {
+		@include border-radius;
+		@include subheader;
+		height: 2rem;
+		width: 2rem;
+		// margin-right: 1rem;
+		// align-self: flex-start;
+		// margin-top: 6rem;
+		border: 1px solid $light-blue;
+		&:hover {
+			background-color: $darker-blue;
+		}
+	}
+
+	&__container {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	&__map {
+		z-index: 0;
+	}
+}
+
+li {
+	list-style: inside;
+}

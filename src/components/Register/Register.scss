@@ -1,0 +1,83 @@
+/// --- REGISTER --- ///
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
+.register-modal {
+	// // position: fixed;
+	// height: 100%;
+	width: 100%;
+	// top: 100;
+	// left: 0;
+	// z-index: 1;
+	display: flex;
+	// align-items: center;
+	justify-content: space-around;
+
+	&__container {
+		background-color: white;
+		// opacity: 0.8;
+		padding: 3rem;
+		border: 20px;
+		width: 30%;
+		@include border-radius;
+		border: none;
+		@include box-shadow;
+	}
+
+	&__close-modal {
+		display: flex;
+		justify-content: flex-end;
+		@include labels-buttons-copy;
+		cursor: pointer;
+		color: $darker-blue;
+		&:hover {
+			font-size: 1rem;
+		}
+	}
+
+	&__title {
+		@include page-header;
+		color: $dark-brown;
+	}
+
+	&__permission-text {
+		margin-left: 0.5rem;
+		font-size: 0.75rem;
+	}
+	&__disclaimer {
+		margin: 1rem 0;
+		font-size: 0.75rem;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__input--error {
+		// @include body-copy;
+		font-size: 0.75rem;
+		line-height: 16px;
+		color: $orange;
+		margin-top: -0.5rem;
+		// margin-left: 1rem;
+	}
+
+	&__sign-up-button {
+		// @include button;
+		// @include labels-buttons-copy;
+		// @include border-radius;
+		// height: 3rem;
+		// width: 7rem;
+		// align-self: flex-end;
+		// color: $green-grey;
+		// // background-color: $light-blue;
+		// border: 1px solid $darker-blue;
+
+		// &:hover {
+		// 	background-color: $darker-blue;
+		// 	// color: $light-blue;
+		// 	border: 1px solid $light-blue;
+		// }
+	}
+}

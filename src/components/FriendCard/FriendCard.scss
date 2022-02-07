@@ -1,0 +1,152 @@
+/// --- FRIENDCARD.SCSS --- ///
+
+@use "../../styles/partials/typography.scss" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.leaflet-popup-content p {
+	margin: 0;
+}
+.friend-card {
+	@include body-copy;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	// width: ;
+
+	&__user {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		margin-bottom: 0.5rem;
+	}
+
+	&__user-name {
+		margin-left: 0.5rem;
+		font-weight: 600;
+	}
+
+	&__chat-button {
+		margin-top: 1rem;
+		@include button;
+		// border-radius: 12px;
+		width: fit-content;
+		// background-color: rgba(241, 188, 14, 0.6);
+	}
+
+	&__location {
+		font-weight: 600;
+	}
+
+	&__distance {
+		&--bold {
+			font-weight: 600;
+		}
+	}
+
+	&__time {
+		&--bold {
+			font-weight: 600;
+		}
+	}
+}
+// .friend-card {
+// 	font-family: "AvenirNext LT Pro", Arial, sans-serif;
+// 	// margin: 1rem;
+// 	border: 1px solid black;
+// 	border-radius: 20px;
+// 	padding: 1rem;
+// 	text-align: center;
+// 	// height: fit-content;
+// 	// width: fit-content;
+// 	// display: flex;
+// 	// @include body-copy;
+// 	// background: linear-gradient(
+// 	// 	45deg,
+// 	// 	$dark-grey,
+// 	// 	$light-grey,
+// 	// 	$darker-blue,
+// 	// 	$darker-blue,
+// 	// 	$light-blue,
+// 	// 	$light-blue
+// 	// );
+// 	// background-color: rgb(223, 209, 170);
+// 	@include body-copy;
+
+// 	&__top-container {
+// 		display: flex;
+// 		flex-direction: column;
+// 		align-items: center;
+// 	}
+
+// 	&__user-name {
+// 		@include subheader;
+// 		font-weight: 700;
+// 	}
+
+// 	&__name {
+// 		font-weight: 500;
+// 		padding-bottom: 1rem;
+// 		text-align: center;
+// 	}
+
+// 	&__location {
+// 		padding-top: 1rem;
+// 	}
+
+// 	&__distance {
+// 		padding: 1rem 0;
+// 		&--bold {
+// 			font-weight: 600;
+// 		}
+// 	}
+
+// 	&__time {
+// 		padding-bottom: 1.5rem;
+// 		&--bold {
+// 			font-weight: 600;
+// 		}
+// 	}
+
+// 	&__chat-link {
+// 		// color: rgb(170, 211, 223);
+// 		color: $primary-text;
+
+// 		position: fixed;
+// 		bottom: 1.5rem;
+// 		left: 4rem;
+// 		&:hover {
+// 			// text-decoration: underline;
+// 			font-size: 1.5rem;
+// 			left: 2rem;
+// 		}
+// 		// color: $green-grey;
+// 		// font-weight: 700;
+// 		// text-shadow: 2px 2px 2px $darker-blue;
+// 	}
+
+// 	&__bottom-container {
+// 		// display: flex;
+// 	}
+
+// 	// &__mini-map {
+// 	// 	margin: 1rem 0;
+// 	// 	border-radius: 20px;
+// 	// 	border-radius: 20px;
+// 	// 	width: 202px;
+// 	// 	height: auto;
+// 	// }
+
+// 	&__links {
+// 		display: flex;
+// 		justify-content: space-evenly;
+// 	}
+
+// 	&__link-image {
+// 		height: 3rem;
+// 		margin: 1rem;
+// 	}
+// 	// &__friend-card__mini-map-container {
+// 	// }
+// }

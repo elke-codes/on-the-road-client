@@ -1,0 +1,133 @@
+/// --- HEADER.SCSS --- ///
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.header {
+	border-bottom: 1px solid $light-blue;
+	display: flex;
+	justify-content: space-between;
+
+	padding: 1rem 2rem;
+	align-items: center;
+	// background: linear-gradient(
+	// 	45deg,
+	// 	$light-blue,
+	// 	$darker-blue,
+	// 	$light-grey,
+	// 	$dark-grey
+	// );
+	height: 100px;
+
+	&__title-link {
+		// width: 30%;
+		@include tablet {
+			width: 30%;
+		}
+	}
+	&__title {
+		// font-size: 3rem;
+		@include tablet {
+			font-size: 3rem;
+		}
+	}
+
+	&__nav {
+		// width: 30%;
+		@include tablet {
+			width: 30%;
+		}
+	}
+
+	&__nav-link {
+		@include subheader;
+		margin: 2rem;
+		padding: 1rem;
+		&--active {
+			border-top: 0.125rem dotted $green-grey;
+			border-radius: 50%;
+			font-weight: 600;
+		}
+		&:hover {
+			border-top: 0.125rem dotted $green-grey;
+			border-radius: 50%;
+			font-weight: 600;
+		}
+	}
+	&__logged-in {
+		// margin-left: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 30%;
+	}
+
+	&__right {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		padding-right: 1rem;
+		width: 100%;
+	}
+
+	&__copy {
+		@include body-copy;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		// margin-left: 1rem;
+		color: $primary-text;
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+	}
+
+	&__add-friend {
+		display: flex;
+		align-items: center;
+	}
+
+	&__login-form {
+		display: flex;
+		align-items: center;
+	}
+
+	&__input {
+		margin-left: 1rem;
+		height: 2.5rem;
+		width: 8rem;
+	}
+
+	&__input--error {
+		// @include body-copy;
+		font-size: 0.75rem;
+		line-height: 16px;
+		color: $orange;
+		margin-top: -0.5rem;
+		margin-left: 1.5rem;
+	}
+	&__button-login {
+		margin-left: 1rem;
+		@include button;
+		@include labels-buttons-copy;
+		color: $dark-grey;
+	}
+
+	&__avatar {
+		height: 56px;
+	}
+
+	&__button-add-friend {
+		@extend .header__button-login;
+	}
+
+	&__button-logout {
+		@extend .header__button-login;
+		margin-right: 1rem;
+	}
+}
+
+.logo {
+	height: 150px;
+}

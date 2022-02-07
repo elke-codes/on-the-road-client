@@ -1,0 +1,84 @@
+/// --- INBOX.SCSS --- ///
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+.active {
+	background-color: yellow;
+}
+.inbox {
+	margin: 2rem;
+	// border: 2px solid $darker-blue;
+	// border-radius: 20px;
+	// box-shadow: 4px 4px 9px 4px $light-grey;
+	@include border-radius;
+	@include box-shadow;
+	width: 400px;
+	// height: 400px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	// /* Hide scrollbar for IE, Edge and Firefox */
+
+	// -ms-overflow-style: none; /* IE and Edge */
+	// scrollbar-width: none; /* Firefox */
+	// /* Hide scrollbar for Chrome, Safari and Opera */
+	// &::-webkit-scrollbar {
+	// 	display: none;
+	// }
+
+	padding: 1rem;
+	background-color: #fff;
+	height: 70%;
+
+	&__title {
+		font-size: 1rem;
+		color: $dark-brown;
+		font-weight: 700;
+		padding: 1rem;
+		margin-bottom: 0.5rem;
+		background-color: $light-blue;
+		border-bottom: 1px solif $dark-brown;
+		@include border-radius;
+	}
+
+	&__friend-active {
+		background-color: $light-brown;
+	}
+	&__user {
+		margin-bottom: 0.5rem;
+	}
+
+	&__user-identity {
+		display: flex;
+		align-items: center;
+		min-height: auto;
+	}
+
+	&__username {
+		margin-left: 1rem;
+	}
+
+	&__details {
+		display: flex;
+	}
+
+	&__details-left {
+		// margin-right: 1rem;
+	}
+
+	&__location {
+	}
+
+	&__image {
+		// margin-right: 1rem;
+	}
+
+	&__name {
+		font-weight: 500;
+	}
+
+	input {
+		&:focus {
+			@include border-radius;
+		}
+	}
+}

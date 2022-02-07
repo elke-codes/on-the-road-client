@@ -1,0 +1,24 @@
+/// --- AVATAR SCSS --- ///
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.Avatar {
+	height: 2.25rem;
+	width: 2.25rem;
+	min-width: 2.25rem;
+	object-fit: cover;
+	object-position: 30%;
+	border-radius: 50%;
+	background-color: $darker-blue;
+	margin-right: 0.5rem;
+
+	&__image {
+		@extend .Avatar;
+	}
+
+	&__header {
+		@include tablet {
+			order: 1;
+		}
+	}
+}

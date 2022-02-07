@@ -1,0 +1,45 @@
+/// --- SEARCHBAR SCSS --- ///
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.search {
+	background-image: url(../../assets/icons/search.svg);
+	background-repeat: no-repeat;
+	background-position: 0.5rem;
+	background-color: white;
+	padding: 1rem 0;
+	padding-left: 2rem;
+	height: 2.5rem;
+	@include border-radius;
+	border: 1px solid $light-blue;
+	width: 80%;
+	margin-right: 7%;
+	@include body-copy;
+
+	@include tablet {
+		width: 100%;
+		/* margin: 0; */
+	}
+
+	// @include desktop {
+	// 	width: 20%;
+	// }
+
+	&--active {
+		border-color: $light-grey;
+		// $action-hover;
+	}
+
+	&--error {
+		border-color: #d22d2d;
+	}
+	&--error-message {
+		color: #d22d2d;
+	}
+	//overwriting this default setting that seems to be applied on the "ouline"
+	&:focus-visible {
+		outline-color: $light-grey;
+		// $action-hover;
+	}
+}

@@ -1,0 +1,172 @@
+/// --- FRIENDCARD.SCSS --- ///
+
+@use "../../styles/partials/typography.scss" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.leaflet-container {
+	// display: none;
+	position: unset;
+
+	// height:30%;
+}
+.card {
+	background-color: white;
+	margin: 2rem;
+	height: 70%;
+	width: 20%;
+	// display: none;
+	@include border-radius;
+	@include tablet {
+		display: unset;
+	}
+
+	&__mini-map {
+		width: 100%;
+		height: 50%;
+	}
+	&__distance {
+		padding: 1rem 0;
+		&--bold {
+			font-weight: 600;
+		}
+	}
+	&__name {
+		margin-top: 1rem;
+	}
+	&__time {
+		&--bold {
+			font-weight: 600;
+		}
+	}
+}
+
+.card-title {
+	margin: 0;
+	margin-left: 1rem;
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 0.5rem;
+	}
+}
+
+.chat-button {
+	margin-left: 1rem;
+	@include button;
+	@include labels-buttons-copy;
+	color: $dark-grey;
+	background-color: $light-blue;
+	border: 1px solid $darker-blue;
+	&:hover {
+		background-color: $darker-blue;
+		color: $light-blue;
+		border: 1px solid $light-blue;
+	}
+}
+
+// .mini-map {
+// 	height: 0%;
+// }
+
+// .friend-card {
+// 	font-family: "AvenirNext LT Pro", Arial, sans-serif;
+// 	// margin: 1rem;
+// 	border: 1px solid black;
+// 	border-radius: 20px;
+// 	padding: 1rem;
+// 	text-align: center;
+// 	// height: fit-content;
+// 	// width: fit-content;
+// 	// display: flex;
+// 	// @include body-copy;
+// 	// background: linear-gradient(
+// 	// 	45deg,
+// 	// 	$dark-grey,
+// 	// 	$light-grey,
+// 	// 	$darker-blue,
+// 	// 	$darker-blue,
+// 	// 	$light-blue,
+// 	// 	$light-blue
+// 	// );
+// 	// background-color: rgb(223, 209, 170);
+// 	@include body-copy;
+
+// 	&__top-container {
+// 		display: flex;
+// 		flex-direction: column;
+// 		align-items: center;
+// 	}
+
+// 	&__user-name {
+// 		@include subheader;
+// 		font-weight: 700;
+// 	}
+
+// 	&__name {
+// 		font-weight: 500;
+// 		padding: 0;
+// 		text-align: center;
+// 	}
+
+// 	&__location {
+// 		// padding-top: 1rem;
+// 	}
+
+// 	&__distance {
+// 		padding: 1rem 0;
+// 		&--bold {
+// 			font-weight: 600;
+// 		}
+// 	}
+
+// 	&__time {
+// 		padding-bottom: 1.5rem;
+// 		&--bold {
+// 			font-weight: 600;
+// 		}
+// 	}
+
+// 	&__chat-link {
+// 		// color: rgb(170, 211, 223);
+// 		color: $primary-text;
+
+// 		position: fixed;
+// 		bottom: 1.5rem;
+// 		left: 4rem;
+// 		&:hover {
+// 			// text-decoration: underline;
+// 			font-size: 1.5rem;
+// 			left: 2rem;
+// 		}
+// 		// color: $green-grey;
+// 		// font-weight: 700;
+// 		// text-shadow: 2px 2px 2px $darker-blue;
+// 	}
+
+// 	&__bottom-container {
+// 		// display: flex;
+// 	}
+
+// 	// &__mini-map {
+// 	// 	margin: 1rem 0;
+// 	// 	border-radius: 20px;
+// 	// 	border-radius: 20px;
+// 	// 	width: 202px;
+// 	// 	height: auto;
+// 	// }
+
+// 	&__links {
+// 		display: flex;
+// 		justify-content: space-evenly;
+// 	}
+
+// 	&__link-image {
+// 		height: 3rem;
+// 		margin: 1rem;
+// 	}
+// 	// &__friend-card__mini-map-container {
+// 	// }
+// }

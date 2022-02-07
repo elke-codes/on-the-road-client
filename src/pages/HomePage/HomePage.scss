@@ -1,0 +1,66 @@
+/// --- HOMEPAGE.SCSS --- ///
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.homepage {
+	height: 90vh;
+	background-image: url("../../assets/images/hero.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding-top: 9rem;
+
+	&__title {
+		// @include page-header;
+		font-size: 4.5rem;
+	}
+
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__button {
+		// @include button;
+		// @include labels-buttons-copy;
+		// color: $light-blue;
+		font-size: 1.5rem;
+		color: $primary-text;
+		// background-color: $light-blue;
+		padding: 0.5rem;
+		border: 2px solid $darker-blue;
+		margin: 2rem;
+
+		&:hover {
+			background-color: $darker-blue;
+			color: $light-blue;
+			border: 1px solid $light-blue;
+		}
+	}
+
+	&__about {
+		margin-right: 3rem;
+		font-size: 1.5rem;
+		// add invisible border so when you hover over it nothing moved up on the page
+		border-bottom: 0.25rem solid rgba(250, 250, 250, 0);
+		&:hover {
+			border-bottom: 0.25rem dotted $primary-text;
+		}
+	}
+
+	&__get-started {
+		font-size: 3.5rem;
+		color: $primary-text;
+		border-bottom: 0.25rem dotted rgba(250, 250, 250, 0);
+		margin: 1rem 0;
+		&:hover {
+			border-bottom: 0.25rem dotted $primary-text;
+		}
+	}
+}

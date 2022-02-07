@@ -1,0 +1,9 @@
+/// --- DEVIDERLINE SCSS --- ///
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.Divider {
+	width: 100%;
+	border-bottom: 1px solid $light-grey;
+	margin-top: 1rem 0;
+}

@@ -1,0 +1,81 @@
+/// --- _TYPOGRAPHY.SCSS --- ///
+
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+// -- FONTS -- //
+@font-face {
+	font-family: "AvenirNext LT Pro";
+	src: url("../../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"),
+		url("../../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "AvenirNext LT Pro";
+	src: url("../../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"),
+		url("../../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "AvenirNext LT Pro";
+	src: url("../../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"),
+		url("../../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+}
+
+// -- TYPOGRAPHY STYLING -- //
+
+// PAGE HEADER
+
+@mixin page-header {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+	color: $primary-text;
+	// @include padding-headlines;
+
+	@include tablet {
+		font-size: 2.0625rem;
+		line-height: 2.75rem;
+	}
+}
+
+@mixin section-header {
+	font-size: 0.75rem;
+	line-height: 1.25rem;
+	font-weight: 600;
+	color: $dark-brown;
+	text-transform: uppercase;
+}
+
+@mixin subheader {
+	font-size: 0.8125rem;
+	line-height: 1.125rem;
+	font-weight: 600;
+	@include tablet {
+		font-size: 0.875rem;
+		line-height: 1.375rem;
+	}
+}
+
+@mixin body-copy {
+	font-size: 0.8125rem;
+	line-height: 1.125rem;
+	font-weight: 400;
+	@include tablet {
+		font-size: 0.875rem;
+		line-height: 1.375rem;
+	}
+}
+
+@mixin labels-buttons-copy {
+	font-size: 0.75rem;
+	line-height: 1.25rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: $light-blue;
+}
