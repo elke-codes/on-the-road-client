@@ -40,9 +40,16 @@
 	}
 
 	&__nav-link {
+		font-size: 0.7125rem;
+		line-height: 1.125rem;
+		font-weight: 600;
+		padding: 0.2rem;
+		@include tablet {
+			margin: 2rem;
+			padding: 1rem;
+		}
 		@include subheader;
-		margin: 2rem;
-		padding: 1rem;
+
 		&--active {
 			border-top: 0.125rem dotted $green-grey;
 			border-radius: 50%;

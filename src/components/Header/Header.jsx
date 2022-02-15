@@ -7,6 +7,7 @@ import { getUserData } from "../../utils/users/getUserData";
 import Avatar from "../Avatar/Avatar";
 import axios from "axios";
 import { getFriendsData } from "../../utils/users/getFriendsData";
+import Modal from "../Modal/Modal";
 
 const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 	const history = useHistory();
@@ -18,6 +19,7 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 		useState("");
 	const [loginUserNameErrorMessage, setLoginUserNameErrorMessage] =
 		useState("");
+	const [showModal, setShowModal] = useState(false);
 	const API_URL = process.env.REACT_APP_API_URL;
 
 	const handleLogin = async (e) => {
@@ -39,6 +41,7 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 				return user;
 			})
 			.then((user) => setLoggedInUser(user))
+			.then(setShowModal(false))
 			.catch((e) => {
 				// if (
 				// 	e.response.data.message.toLowerCase().includes("password")
@@ -153,6 +156,7 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 										</button>
 									</form>
 								)}
+
 								<button
 									className="btn btn-outline btn-sm mr-2"
 									onClick={handleLogOut}>
@@ -163,39 +167,55 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 						</div>
 					</>
 				) : (
-					<form className="header__login-form" onSubmit={handleLogin}>
-						<div className="input__wrapper">
-							<input
-								className="header__input"
-								type="text"
-								placeholder="username"
-								name="userName"
-							/>
-							{loginUserNameErrorMessage && (
-								<p className="header__input--error">
-									{loginUserNameErrorMessage}
-								</p>
-							)}
-						</div>
-						<div className="input__wrapper">
-							<input
-								className="header__input"
-								type="password"
-								placeholder="password"
-								name="password"
-							/>
-							{loginPasswordErrorMessage && (
-								<p className="header__input--error">
-									{loginPasswordErrorMessage}
-								</p>
-							)}
-						</div>
+					<>
 						<button
-							type="submit"
-							className="btn btn-primary btn-sm ml-2">
+							className="btn btn-primary btn-sm ml-2"
+							onClick={() => setShowModal(true)}>
 							LOGIN
 						</button>
-					</form>
+
+						{showModal && (
+							<Modal
+								showModal={showModal}
+								setShowModal={setShowModal}>
+								<form
+									className="header__login-form"
+									onSubmit={handleLogin}>
+									<div className="input__wrapper">
+										<input
+											className="header__input"
+											type="text"
+											placeholder="username"
+											name="userName"
+										/>
+										{loginUserNameErrorMessage && (
+											<p className="header__input--error">
+												{loginUserNameErrorMessage}
+											</p>
+										)}
+									</div>
+									<div className="input__wrapper">
+										<input
+											className="header__input"
+											type="password"
+											placeholder="password"
+											name="password"
+										/>
+										{loginPasswordErrorMessage && (
+											<p className="header__input--error">
+												{loginPasswordErrorMessage}
+											</p>
+										)}
+									</div>
+									<button
+										type="submit"
+										className="btn btn-primary btn-sm ml-2">
+										LOGIN
+									</button>
+								</form>
+							</Modal>
+						)}
+					</>
 				)}
 			</div>
 		</section>
