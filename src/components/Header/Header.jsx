@@ -8,9 +8,10 @@ import Avatar from "../Avatar/Avatar";
 import axios from "axios";
 import { getFriendsData } from "../../utils/users/getFriendsData";
 import Modal from "../Modal/Modal";
+import FindFriendsModal from "../FindFriendsModal/FindFriendsModal";
 
 const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
-	const history = useHistory();
+	//state
 	const [userNameInvalid, setUserNameInvalid] = useState(false);
 	const [showSearchBar, setShowSearchBar] = useState(false);
 	const [showFindFriendButton, setShowFindFriendButton] = useState(true);
@@ -20,8 +21,13 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 	const [loginUserNameErrorMessage, setLoginUserNameErrorMessage] =
 		useState("");
 	const [showModal, setShowModal] = useState(false);
-	const API_URL = process.env.REACT_APP_API_URL;
+	const [showFindFriendsModal, setShowFindFriendsModal] = useState(false);
 
+	// constants
+	const API_URL = process.env.REACT_APP_API_URL;
+	const history = useHistory();
+
+	// functions
 	const handleLogin = async (e) => {
 		e.preventDefault();
 
@@ -96,6 +102,17 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 		setFriendsData(friends);
 	};
 
+	// const handleMenu = () => {
+	// 	console.log("avatar clicked");
+	// 	setShowMenu(true);
+	// };
+
+	const handleFindFriendsMobile = () => {
+		setShowFindFriendsModal(true);
+
+		return <FindFriendsModal />;
+	};
+
 	return (
 		<section className="header">
 			<Link to="/" className="header__title-link">
@@ -121,7 +138,7 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 					ABOUT
 				</NavLink>
 			</nav>
-			<div className="header__logged-in">
+			<div className="header__logged-in-tablet">
 				{loggedInUser ? (
 					<>
 						<div className="header__right">
@@ -218,6 +235,77 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 					</>
 				)}
 			</div>
+			{loggedInUser ? (
+				<div className="header__logged-in-mobile">
+					<div class="dropdown dropdown-end">
+						<label tabindex="0" class="btn btn-ghost rounded-btn">
+							<Avatar />
+						</label>
+						<ul
+							tabindex="0"
+							class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+							<li>
+								<a onClick={handleFindFriendsMobile}>
+									Find Friends
+								</a>
+							</li>
+							<li>
+								<a onClick={handleLogOut}>Log out</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			) : (
+				<>
+					<button
+						className="btn btn-primary btn-sm ml-2"
+						onClick={() => setShowModal(true)}>
+						LOGIN
+					</button>
+
+					{showModal && (
+						<Modal
+							showModal={showModal}
+							setShowModal={setShowModal}>
+							<form
+								className="header__login-form"
+								onSubmit={handleLogin}>
+								<div className="input__wrapper">
+									<input
+										className="header__input"
+										type="text"
+										placeholder="username"
+										name="userName"
+									/>
+									{loginUserNameErrorMessage && (
+										<p className="header__input--error">
+											{loginUserNameErrorMessage}
+										</p>
+									)}
+								</div>
+								<div className="input__wrapper">
+									<input
+										className="header__input"
+										type="password"
+										placeholder="password"
+										name="password"
+									/>
+									{loginPasswordErrorMessage && (
+										<p className="header__input--error">
+											{loginPasswordErrorMessage}
+										</p>
+									)}
+								</div>
+								<button
+									type="submit"
+									className="btn btn-primary btn-sm ml-2">
+									LOGIN
+								</button>
+							</form>
+						</Modal>
+					)}
+				</>
+			)}
 		</section>
 	);
 };
