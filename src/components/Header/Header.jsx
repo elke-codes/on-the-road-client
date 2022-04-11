@@ -100,6 +100,7 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 		// getfriendsdata again to update dom with all friends including new one
 		const friends = await getFriendsData(loggedInUser);
 		setFriendsData(friends);
+		setShowFindFriendsModal(false);
 	};
 
 	// const handleMenu = () => {
@@ -108,9 +109,31 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 	// };
 
 	const handleFindFriendsMobile = () => {
+		console.log("find friends clicked");
 		setShowFindFriendsModal(true);
 
-		return <FindFriendsModal />;
+		// return (
+		// 	<Modal showModal={showModal} setShowModal={setShowModal}>
+		// 		<form
+		// 			action="submit"
+		// 			className="header__add-friend"
+		// 			onSubmit={async (e) => {
+		// 				await handleAddFriend(e);
+		// 			}}>
+		// 			<input
+		// 				type="text"
+		// 				name="addFriend"
+		// 				className="search"
+		// 				placeholder="search..."
+		// 			/>
+		// 			<button
+		// 				className="btn btn-primary btn-sm mr-2"
+		// 				type="submit">
+		// 				Add friend!
+		// 			</button>
+		// 		</form>
+		// 	</Modal>
+		// );
 	};
 
 	return (
@@ -305,6 +328,30 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 						</Modal>
 					)}
 				</>
+			)}
+			{loggedInUser && showFindFriendsModal && (
+				<Modal
+					showModal={showFindFriendsModal}
+					setShowModal={setShowFindFriendsModal}>
+					<form
+						action="submit"
+						className="header__add-friend"
+						onSubmit={async (e) => {
+							await handleAddFriend(e);
+						}}>
+						<input
+							type="text"
+							name="addFriend"
+							className="search"
+							placeholder="type friends' name "
+						/>
+						<button
+							className="btn btn-primary btn-sm mr-2"
+							type="submit">
+							Add friend!
+						</button>
+					</form>
+				</Modal>
 			)}
 		</section>
 	);

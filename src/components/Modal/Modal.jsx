@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const ModalBackground = styled.div`
 	position: fixed;
-	z-index: 1;
+	z-index: 100;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -21,7 +21,8 @@ const ModalBody = styled.div`
 	width: fit-content;
 `;
 
-const Modal = ({ children, setShowModal, showModal }) => {
+const Modal = ({ children, setShowModal, howModal }) => {
+	console.log("in modal");
 	return (
 		<>
 			{/* {showModal && ( */}
