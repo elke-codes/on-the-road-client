@@ -18,6 +18,9 @@
 	&__title {
 		// @include page-header;
 		font-size: 4.5rem;
+		background-color: rgba(250, 250, 250, 0.1);
+		margin: 2rem;
+		padding: 0 1rem;
 	}
 
 	&__buttons {
