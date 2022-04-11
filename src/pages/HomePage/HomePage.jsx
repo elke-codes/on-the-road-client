@@ -114,12 +114,16 @@ const HomePage = ({ loggedInUser, setLoggedInUser }) => {
 
 			{loggedInUser && (
 				<>
-					<Link to="/map" className="homepage__get-started">
+					<p className="homepage__get-started">
 						Explore where your connections are
-					</Link>
-					<Link to="/chat" className="homepage__get-started">
-						Chat with your friends
-					</Link>
+					</p>
+					<button className="btn btn-success">
+						<Link to="/map">Go to Map</Link>
+					</button>
+					<p className="homepage__get-started">
+						<Link to="/chat">Chat with your friends</Link>
+					</p>
+					<button className="btn btn-success">Chat!</button>
 				</>
 			)}
 		</main>
