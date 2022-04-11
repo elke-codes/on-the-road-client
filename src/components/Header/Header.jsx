@@ -49,15 +49,15 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 			.then((user) => setLoggedInUser(user))
 			.then(setShowModal(false))
 			.catch((e) => {
-				// if (
-				// 	e.response.data.message.toLowerCase().includes("password")
-				// ) {
-				// 	setLoginPasswordErrorMessage(e.response.data.message);
-				// } else if (
-				// 	e.response.data.message.toLowerCase().includes("username")
-				// ) {
-				// 	setLoginUserNameErrorMessage(e.response.data.message);
-				// }
+				if (
+					e.response.data.message.toLowerCase().includes("password")
+				) {
+					setLoginPasswordErrorMessage(e.response.data.message);
+				} else if (
+					e.response.data.message.toLowerCase().includes("username")
+				) {
+					setLoginUserNameErrorMessage(e.response.data.message);
+				}
 				console.log("error message", e.response.data.message, e);
 			});
 
@@ -281,7 +281,7 @@ const Header = ({ loggedInUser, setLoggedInUser, setFriendsData }) => {
 			) : (
 				<>
 					<button
-						className="btn btn-primary btn-sm ml-2"
+						className="btn btn-primary btn-sm ml-2 mobile"
 						onClick={() => setShowModal(true)}>
 						LOGIN
 					</button>
