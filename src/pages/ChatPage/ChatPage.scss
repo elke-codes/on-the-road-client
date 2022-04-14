@@ -37,6 +37,27 @@
 	justify-content: center;
 	// padding: 3rem;
 	height: 80vh;
+	flex-direction: column;
+	justify-content: space-around;
+	@include tablet {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	&__inbox-mobile {
+		@include tablet {
+			display: none;
+		}
+	}
+
+	&__inbox-tablet {
+		display: none;
+		@include tablet {
+			display: flex;
+			height: 70%;
+			margin-top: 9%;
+		}
+	}
 
 	&__not-logged-in {
 		height: 100%;

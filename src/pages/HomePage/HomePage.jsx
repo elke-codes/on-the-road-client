@@ -2,7 +2,7 @@ import "./HomePage.scss";
 
 import React, { useState } from "react";
 import Register from "../../components/Register/Register";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { getUserData } from "../../utils/users/getUserData";
 
@@ -16,6 +16,8 @@ const HomePage = ({ loggedInUser, setLoggedInUser }) => {
 		useState("");
 
 	const API_URL = process.env.REACT_APP_API_URL;
+
+	const history = useHistory();
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
@@ -117,13 +119,21 @@ const HomePage = ({ loggedInUser, setLoggedInUser }) => {
 					<p className="homepage__get-started">
 						Explore where your connections are
 					</p>
-					<button className="btn btn-success">
-						<Link to="/map">Go to Map</Link>
+					<button
+						className="btn btn-success"
+						onClick={() => history.push("/map")}>
+						Go to Map
+						{/* <Link to="/map">Go to Map</Link> */}
 					</button>
 					<p className="homepage__get-started">
-						<Link to="/chat">Chat with your friends</Link>
+						Chat with your friends
 					</p>
-					<button className="btn btn-success">Chat!</button>
+					<button
+						className="btn btn-success"
+						onClick={() => history.push("/chat")}>
+						Chat
+						{/* <Link to="/chat">Chat!</Link> */}
+					</button>
 				</>
 			)}
 		</main>

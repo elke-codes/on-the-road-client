@@ -28,6 +28,12 @@
 	padding: 1rem;
 	background-color: #fff;
 	height: 70%;
+	&__tablet {
+		display: none;
+		@include tablet {
+			display: unset;
+		}
+	}
 
 	&__title {
 		font-size: 1rem;

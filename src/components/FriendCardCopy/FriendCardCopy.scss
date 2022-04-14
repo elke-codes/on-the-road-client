@@ -14,12 +14,13 @@
 .card {
 	background-color: white;
 	margin: 2rem;
-	height: 70%;
-	width: 20%;
-	// display: none;
+
+	display: none;
 	@include border-radius;
 	@include tablet {
 		display: unset;
+		height: 70%;
+		width: 20%;
 	}
 
 	&__mini-map {

@@ -13,7 +13,9 @@ const Inbox = ({
 	setSelectedFriend,
 	room,
 	setRoom,
-	loggedInUser
+	loggedInUser,
+	setShowModal,
+	className
 }) => {
 	const [active, setActive] = useState(false);
 
@@ -39,7 +41,7 @@ const Inbox = ({
 
 	return (
 		<>
-			<section className="inbox">
+			<section className={`inbox + ${className}`}>
 				<SearchBar />
 
 				{/* filter over people, filter out id that matches logged in id */}
@@ -52,6 +54,7 @@ const Inbox = ({
 								className="collapse border  border-base-300 inbox__user"
 								onClick={() => {
 									handleSelectedFriend(friend);
+									setShowModal(false);
 								}}>
 								<input
 									type="checkbox"

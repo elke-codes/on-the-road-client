@@ -6,6 +6,7 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { timeAgo } from "../../utils/time/timeAgo";
+import { timeAtLocation } from "../../utils/time/timeAtLocation";
 
 const ChatBox = ({
 	friendsData,
@@ -15,6 +16,8 @@ const ChatBox = ({
 	room,
 	setRoom
 }) => {
+	const [localTime, setLocalTime] = useState(null);
+
 	//keep track of current message
 	const [currentMessage, setCurrentMessage] = useState("");
 	//store all messages
@@ -91,15 +94,38 @@ const ChatBox = ({
 		});
 	}, [socket]);
 
+	useEffect(async () => {
+		const selectedFriendLat = selectedFriend.locations[0].lat;
+		const selectedFriendLng = selectedFriend.locations[0].lng;
+		setLocalTime(
+			await timeAtLocation(selectedFriendLat, selectedFriendLng)
+		);
+	}, [selectedFriend]);
+
 	const { userName } = loggedInUser;
 
 	return (
 		<section className="chat-box">
 			{/* header talking to? */}
 			<article className="chat-box__header">
-				{selectedFriend
-					? `Chat with ${selectedFriend.userName}`
-					: "Chat"}
+				{selectedFriend ? (
+					<>
+						<h3 className="chat-box__header-title">{`Chat with ${selectedFriend.userName}`}</h3>
+						<p>
+							<p className="chat-box__header-copy">
+								{selectedFriend.locations[0].city},
+								{selectedFriend.locations[0].country}
+							</p>
+							{localTime && (
+								<p className="chat-box__header-copy">
+									Local Time : {localTime}
+								</p>
+							)}
+						</p>
+					</>
+				) : (
+					"Chat"
+				)}
 			</article>
 			<article className="chat-box__body">
 				<ScrollToBottom className="message-container">
