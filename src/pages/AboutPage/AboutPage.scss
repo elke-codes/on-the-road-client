@@ -33,6 +33,8 @@
 	&__title {
 		@include page-header;
 		order: 1;
+		color: $dark-brown;
+
 		@include tablet {
 			order: 2;
 		}
