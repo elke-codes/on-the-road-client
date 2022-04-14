@@ -6,33 +6,49 @@
 .about {
 	padding: 3rem;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	background-image: url("../../assets/images/IMG_20131018_181032.jpg");
 	box-shadow: inset 0 0 0 1000px rgb(215, 230, 235, 0.2);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	height: 80vh;
+	height: fit-content;
+	@include tablet {
+		flex-direction: row;
+		height: 80vh;
+	}
 	&__main {
 		height: fit-content;
-		background-color: rgb(215, 230, 235, 0.6);
+		background-color: rgb(215, 230, 235, 0.8);
 		@include border-radius;
 		padding: 2rem;
+		order: 2;
+		@include tablet {
+			order: 1;
+			margin-left: 2rem;
+		}
 	}
 
 	&__title {
 		@include page-header;
+		order: 1;
+		@include tablet {
+			order: 2;
+		}
 	}
 
 	&__copy {
 		@include body-copy;
+		font-size: 1rem;
+		line-height: 1.5;
 
 		&--bold {
 			font-weight: 700;
 			color: $dark-brown;
 		}
 		&--highlight {
-			padding-top: 3rem;
+			padding: 1rem 0;
 			font-style: italic;
 			color: $dark-brown;
 			font-size: 1.5rem;
@@ -41,26 +57,59 @@
 	}
 
 	&__me {
-		margin-left: 2rem;
 		padding: 1rem;
-		background-color: rgb(151, 179, 200, 0.5);
+		margin-bottom: 1rem;
+		background-color: rgb(151, 179, 200, 0.8);
 		@include border-radius;
-		width: 40vw;
-		height: 80%;
 	}
 
 	&__me-header {
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 	}
 
 	&__me-title {
 		@include section-header;
 		color: $light-blue;
+		font-size: 1.5rem;
 	}
 
 	&__me-img {
-		height: 6rem;
-		@include border-radius;
+		height: 5rem;
+		// width: 5rem;
+		// @include border-radius;
+		border-radius: 50%;
+	}
+
+	&__connect {
+		@extend .about__me;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		order: 3;
+		margin-top: 1rem;
+		@include tablet {
+			margin-left: 2rem;
+		}
+	}
+
+	&__connect-header {
+		@extend .about__me-header;
+		// flex-direction: column;
+	}
+
+	&__connect-title {
+		@extend .about__me-title;
+	}
+
+	&__connect-body {
+		display: flex;
+	}
+
+	&__connect-img {
+		height: 2rem;
+		margin: 2rem;
 	}
 }
