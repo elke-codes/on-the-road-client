@@ -11,6 +11,8 @@ const AboutPage = () => {
 		<>
 			<main className="about">
 				<article className="about__main">
+					<h2 className="about__title">About wayward </h2>
+
 					<h3 className="about__copy--highlight about__copy--bold">
 						wayward is here for people who move around, connect and
 						love to reconnect, who are interested in the social, and
@@ -45,7 +47,7 @@ const AboutPage = () => {
 						cheers, I was hoping some of those travelling souls I
 						met along the way would respond, and we could reconnect.
 						<h3 className="about__copy--highlight">
-							... enter: wayward...
+							enter wayward
 						</h3>
 						With wayward you can stay touch with people you met on
 						the road, chat with them AND see where in the world they
